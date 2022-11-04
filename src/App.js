@@ -1,6 +1,9 @@
 import "./App.css";
 import Profile from "./Profile";
 import Product from "./Product";
+import { Route, Switch } from "react-router-dom";
+import Contact from "./Contact";
+import Form from "./Form";
 const items = [
   {
     href: "https://training.zuri.team/",
@@ -36,10 +39,20 @@ const items = [
 function App() {
   return (
     <div className="container">
-      <Profile />
-      {items.map(({ href, id, content, desc }) => {
-        return <Product href={href} id={id} content={content} desc={desc} />;
-      })}
+      <Switch>
+        <Route exact path="/">
+          <Profile />
+          {items.map(({ href, id, content, desc }) => {
+            return (
+              <Product href={href} id={id} content={content} desc={desc} />
+            );
+          })}
+          <Contact />
+        </Route>
+        <Route path="/contact">
+          <Form />
+        </Route>
+      </Switch>
     </div>
   );
 }
