@@ -263,6 +263,11 @@ textarea.form-control {
   .container {
     padding: 1em;
   }
+
+  .form {
+    width: 85%;
+    margin: 2rem auto;
+  }
 }
 
 .invalid input {
